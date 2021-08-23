@@ -1,0 +1,71 @@
+{
+  "name": "tentative-guild-site",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^4.12.3",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "axios": "^0.21.1",
+    "eslint-config-standard": "^16.0.3",
+    "final-form": "^4.20.2",
+    "ramda": "^0.27.1",
+    "react": "^17.0.2",
+    "react-device-detect": "^1.17.0",
+    "react-dom": "^17.0.2",
+    "react-final-form": "^6.5.3",
+    "react-https-redirect": "^1.1.0",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "react-sizes": "^2.0.0",
+    "react-transition-group": "^4.4.2",
+    "web-vitals": "^1.0.1",
+    "webfontloader": "^1.6.28"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-plugin-import": "^2.24.1",
+    "eslint-plugin-jest": "^24.4.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-standard": "^5.0.0",
+    "history": "^5.0.1",
+    "husky": "^7.0.1",
+    "node-sass": "^6.0.1",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint:js": "eslint src/",
+    "lint:css": "stylelint --config stylelint.json **/*.scss",
+    "lint": "yarn lint:js && yarn lint:css",
+    "verify": "yarn lint && yarn test"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

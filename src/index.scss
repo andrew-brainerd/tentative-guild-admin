@@ -1,0 +1,63 @@
+@import './styles/colors.scss';
+@import './styles/sizing.scss';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  ;
+}
+
+body {
+  background-color: $darkGrey;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-width: $minPageWidth;
+  position: relative;
+  width: 100%;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+h1 {
+  font-size: 5vw;
+}
+
+a {
+  &:active,
+  &:link,
+  &:visited {
+    color: white;
+  }
+}
+
+.fadeAnimation-enter {
+  opacity: 0;
+}
+
+.fadeAnimation-enter-active {
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.fadeAnimation-exit {
+  opacity: 1;
+}
+
+.fadeAnimation-exit-active {
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+@media screen and (max-width: $minPageWidth) {
+  h1 {
+    font-size: 28px;
+  }
+}

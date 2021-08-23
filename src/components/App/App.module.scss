@@ -1,0 +1,14 @@
+.app {
+  font-family: 'Urbanist', sans-serif;
+  margin: auto;
+  max-width: 1000px;
+  text-align: center;
+
+  .content {
+    color: white;
+    min-height: 100vh;
+    max-width: 950px;
+    position: relative;
+    top: 50px;
+  }
+}
