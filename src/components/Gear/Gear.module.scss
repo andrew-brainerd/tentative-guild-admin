@@ -1,7 +1,26 @@
-.gear {
-  text-align: left;
+.content {
+  min-height: 100vh;
 
-  .content {
-    min-height: 100vh;
+  .characters {
+    padding: 0 50px;  
+    position: relative;
+    top: 50px;
+
+    .character {
+      border: 2px solid transparent;
+      cursor: pointer;
+      font-size: 3vw;
+      padding: 10px 15px;
+      text-align: left;
+
+      &:hover {
+        border: 2px solid white;
+      }
+      
+      .gear {
+        font-size: 0.8em;
+        padding-left: 10px;
+      }
+    }
   }
 }

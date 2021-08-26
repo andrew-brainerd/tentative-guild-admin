@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from 'react';
 // import { authenticate, getItemInfo } from '../../api/blizzard';
-import { getCharacters } from '../../api/gear';
+import { getCharacters, getGear } from '../../api/gear';
 import styles from './Gear.module.scss';
 
 const Gear = () => {
   const [chars, setChars] = useState([]);
-
-  // console.log(characters);
-
-  // const head = 22267;
-  // const staff = 25950;
+  const [charGear, setCharGear] = useState({});
 
   useEffect(() => {
     // authenticate().then(({ access_token: token }) => {
@@ -23,16 +19,47 @@ const Gear = () => {
     // });
 
     getCharacters().then(({ characters }) => {
-      setChars(characters);
       console.log('Characters', characters);
+      setChars(characters);
     });
   }, []);
 
+  const getCharacterGear = character => {
+    getGear(character).then(gear => {
+      console.log('Gear', gear);
+      setCharGear(gear);
+      console.log(charGear);
+    });
+  };
+
   return (
-    <div className={styles.gear}>
-      <pre>
-        {chars}
-      </pre>
+    <div className={styles.content}>
+      <div className={styles.characters}>
+        {chars.map(character => (
+          <div
+            key={character}
+            className={styles.character}
+            onClick={() => getCharacterGear(character)}
+          >
+            {character}
+            {charGear.gear && charGear.name === character && (
+              <div className={styles.gear}>
+                {charGear.gear.map(({ itemId, itemSlot, itemName, itemRarity }) => (
+                  <div
+                    key={itemSlot}
+                    className={styles.item}
+                  >
+                    {itemName}
+                  </div>
+                ))}
+              </div>
+            )}
+            {charGear.gear && charGear.name === character && charGear.gear.length === 0 && (
+              <h2>No Gear Data</h2>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
