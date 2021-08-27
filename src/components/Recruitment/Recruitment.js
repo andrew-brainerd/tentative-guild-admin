@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { getApplications } from '../../api/recruitment';
+import Loading from '../Loading/Loading';
 import styles from './Recruitment.module.scss';
 
 const Recruitment = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [applications, setApplications] = useState([]);
 
   useEffect(() => {
@@ -17,6 +19,7 @@ const Recruitment = () => {
         },
         ...data
       ]);
+      setIsLoading(false);
     });
   }, []);
 
@@ -24,7 +27,7 @@ const Recruitment = () => {
     <div className={styles.recruitment}>
       <h1>Applications</h1>
       <div className={styles.content}>
-        {applications.map((app, a) => (
+        {isLoading ? <Loading /> : applications.map((app, a) => (
           <div key={a} className={[
             styles.application,
             a === 0 ? styles.header : ''
