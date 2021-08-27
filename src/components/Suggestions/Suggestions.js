@@ -9,7 +9,13 @@ const Suggestions = () => {
 
   useEffect(() => {
     getSuggestions().then(({ data }) => {
-      setSuggestions(data);
+      setSuggestions([
+        {
+          name: 'Name',
+          suggestion: 'Feedback'
+        },
+        ...data
+      ]);
       setIsLoading(false);
     });
   }, []);
@@ -18,17 +24,17 @@ const Suggestions = () => {
     <div className={styles.suggestions}>
       <h1>Suggestions</h1>
       <div className={styles.content}>
-        {isLoading ? <Loading /> : suggestions.map((app, a) => (
-          <div key={a} className={[
-            styles.suggestion,
-            a === 0 ? styles.header : ''
+        {isLoading ? <Loading /> : suggestions.map((feedback, f) => (
+          <div key={f} className={[
+            styles.feedback,
+            f === 0 ? styles.header : ''
           ].join(' ')}
           >
             <div className={styles.name}>
-              {app.name}
+              {feedback.name}
             </div>
             <div className={styles.suggestion}>
-              {app.suggestion}
+              {feedback.suggestion}
             </div>
           </div>
         ))}

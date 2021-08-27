@@ -1,13 +1,13 @@
 @import '../../styles/colors.scss';
 
-.gear {
+.suggestions {
   .content {
     margin: 50px auto;
     min-height: 100vh;
     padding-bottom: 100px;
     width: 90%;
 
-    .suggestion {
+    .feedback {
       align-items: center;
       border-bottom: 1px solid white;
       display: flex;

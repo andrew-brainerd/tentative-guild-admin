@@ -9,7 +9,6 @@ const Recruitment = () => {
 
   useEffect(() => {
     getApplications().then(({ data }) => {
-      console.log('apps', data);
       setApplications([
         {
           name: 'Name',
