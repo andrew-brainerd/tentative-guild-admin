@@ -1,7 +1,58 @@
-.gear {
-  text-align: left;
+@import '../../styles/colors.scss';
 
+.recruitment {
   .content {
+    margin: 50px auto;
     min-height: 100vh;
+    padding-bottom: 100px;
+    width: 90%;
+
+    .application {
+      align-items: center;
+      border-bottom: 1px solid white;
+      display: flex;
+      height: 50px;
+      padding: 10px auto;
+
+      &.header {
+        border-width: 5px;
+        font-size: 1.5em;
+        font-weight: bold;
+        transition: 0.5s all ease-in-out;
+      }
+
+      &:hover:not(.header) {
+        background: $yellow;
+        color: black;
+      }
+
+      .name,
+      .race,
+      .class,
+      .spec {
+        align-items: center;
+        cursor: default;
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        padding: 5px 10px;
+      }
+
+      .name {
+        width: 200px;
+      }
+
+      .race {
+        width: 200px;
+      }
+
+      .class {
+        width: 200px;
+      }
+
+      .spec {
+        width: 200px;
+      }
+    }
   }
 }

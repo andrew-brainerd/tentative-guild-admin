@@ -8,3 +8,11 @@ export const addPlayer = async ({ toonName, toonRace, toonClass, toonSpec }) => 
 
   return response;
 };
+
+export const getApplications = async () => {
+  const response = await client.get('/recruitment')
+    .then(prop('data'))
+    .catch(err => console.error(err));
+
+  return response;
+};
