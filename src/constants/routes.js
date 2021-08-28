@@ -2,6 +2,7 @@ import Home from '../components/Home/Home';
 import Recruitment from '../components/Recruitment/Recruitment';
 import Gear from '../components/Gear/Gear';
 import Suggestions from '../components/Suggestions/Suggestions';
+import ManageGear from '../components/ManageGear/ManageGear';
 
 export default [
   {
@@ -23,5 +24,10 @@ export default [
     path: '/suggestions',
     name: 'Suggestions',
     Component: Suggestions
+  },
+  {
+    path: '/gear-data',
+    name: 'Data',
+    Component: ManageGear
   }
 ];

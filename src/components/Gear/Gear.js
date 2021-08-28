@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { authenticate, getItemInfo } from '../../api/blizzard';
-import { getCharacters, getGear } from '../../api/gear';
+import { getCharacters, getCharacterGear } from '../../api/gear';
 import { rarities } from '../../constants/items';
 import styles from './Gear.module.scss';
 
@@ -12,7 +12,6 @@ const Gear = () => {
 
   useEffect(() => {
     authenticate().then(({ access_token: token }) => {
-      console.log(token);
       setBlizzardToken(token);
     });
 
@@ -21,16 +20,14 @@ const Gear = () => {
     });
   }, []);
 
-  const getCharacterGear = character => {
-    getGear(character).then(gear => {
-      console.log('Gear', gear);
-      setCharGear(gear);
-      console.log(charGear);
-    });
+  const getCharGear = character => {
+    getCharacterGear(character).then(
+      gear => setCharGear(gear)
+    );
   };
 
   useEffect(() => {
-    console.log('Gear Details', gearDetails);
+    gearDetails && console.log('Gear Details', gearDetails);
   }, [gearDetails]);
 
   const getItemDetails = itemId => {
@@ -46,15 +43,20 @@ const Gear = () => {
     <div className={styles.content}>
       <div className={styles.characters}>
         {chars.map(character => (
-          <>
+          <div key={character}>
             <div
-              key={character}
               className={styles.character}
-              onClick={() => getCharacterGear(character)}
+              onClick={() => {
+                if (charGear.gear && charGear.character.characterName === character) {
+                  setCharGear({});
+                } else {
+                  getCharGear(character);
+                }
+              }}
             >
               {character}
             </div>
-            {charGear.gear && charGear.name === character && (
+            {charGear.gear && charGear.character.characterName === character && (
               <div className={styles.gear}>
                 {charGear.gear.map(({ itemId, itemSlot, itemName, itemRarity }) => (
                   <div
@@ -72,10 +74,10 @@ const Gear = () => {
                 ))}
               </div>
             )}
-            {charGear.gear && charGear.name === character && charGear.gear.length === 0 && (
+            {charGear.gear && charGear.character.characterName && charGear.gear.length === 0 && (
               <h2>No Gear Data</h2>
             )}
-          </>
+          </div>
         ))}
       </div>
     </div>
