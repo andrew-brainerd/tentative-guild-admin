@@ -1,47 +1,50 @@
-.content {
-  min-height: 100vh;
-  padding-bottom: 150px;
+.gear {
+  .content {
+    min-height: 100vh;
+    padding-bottom: 100px;
+    width: 90%;
 
-  .characters {
-    padding: 0 50px;  
-    position: relative;
-    top: 50px;
+    .characters {
+      padding: 0 50px;
+      position: relative;
+      top: 50px;
 
-    .character {
-      border: 2px solid transparent;
-      cursor: pointer;
-      font-size: 32px;
-      padding: 10px 15px;
-      text-align: left;
+      .character {
+        border: 2px solid transparent;
+        cursor: pointer;
+        font-size: 32px;
+        padding: 10px 15px;
+        text-align: left;
 
-      &:hover {
-        border: 2px solid white;
+        &:hover {
+          border: 2px solid white;
+        }
       }
-    }
 
-    .gear {
-      font-size: 24px;
-      margin-top: 10px;
-      padding-left: 50px;
-      text-align: left;
+      .gearContainer {
+        font-size: 24px;
+        margin-top: 10px;
+        padding-left: 50px;
+        text-align: left;
 
-      .item {
-        user-select: none;
+        .item {
+          user-select: none;
 
-        &.poor {
-          color: grey;
-        }
+          &.poor {
+            color: grey;
+          }
 
-        &.uncommon {
-          color: green;
-        }
+          &.uncommon {
+            color: green;
+          }
 
-        &.rare {
-          color: blue;
-        }
+          &.rare {
+            color: blue;
+          }
 
-        &.epic {
-          color: purple;
+          &.epic {
+            color: purple;
+          }
         }
       }
     }

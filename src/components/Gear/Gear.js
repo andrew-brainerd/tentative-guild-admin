@@ -40,6 +40,8 @@ const Gear = () => {
   };
 
   return (
+    <div className={styles.gear}>
+    <h1>Gear</h1>
     <div className={styles.content}>
       <div className={styles.characters}>
         {chars.map(character => (
@@ -57,7 +59,7 @@ const Gear = () => {
               {character}
             </div>
             {charGear.gear && charGear.character.characterName === character && (
-              <div className={styles.gear}>
+              <div className={styles.gearContainer}>
                 {charGear.gear.map(({ itemId, itemSlot, itemName, itemRarity }) => (
                   <div
                     key={itemSlot}
@@ -80,6 +82,7 @@ const Gear = () => {
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 };
