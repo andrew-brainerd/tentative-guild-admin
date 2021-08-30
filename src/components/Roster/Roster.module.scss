@@ -46,7 +46,9 @@
       .class,
       .level,
       .zone,
-      .rank {
+      .rank
+      .gear,
+      .logs {
         align-items: center;
         cursor: default;
         display: flex;
@@ -87,7 +89,7 @@
         width: 200px;
       }
 
-      .gear {
+      .gear, .logs {
         width: 50px;
       }
     }

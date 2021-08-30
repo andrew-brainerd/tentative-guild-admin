@@ -13,10 +13,13 @@ const headerRow = {
   level: 'Level',
   zone: 'Zone',
   rank: 'Rank',
-  gear: ''
+  gear: '',
+  logs: ''
 };
 
 const getIronforgeLink = name => `https://ironforge.pro/?player=${name}`;
+
+const getWarcraftLogsLink = name => `https://classic.warcraftlogs.com/character/us/pagle/${name}`;
 
 const Roster = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -92,6 +95,17 @@ const Roster = () => {
                         rel="noreferrer"
                       >
                         Gear
+                      </a>
+                    )}
+                  </div>
+                  <div className={styles.logs}>
+                    {m !== 0 && member.level === 70 && (
+                      <a
+                        href={getWarcraftLogsLink((member.name || '').replace('-Pagle', '').toLowerCase())}
+                        target='_blank'
+                        rel="noreferrer"
+                      >
+                        Logs
                       </a>
                     )}
                   </div>
