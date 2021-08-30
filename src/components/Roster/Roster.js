@@ -12,8 +12,11 @@ const headerRow = {
   class: 'Class',
   level: 'Level',
   zone: 'Zone',
-  rank: 'Rank'
+  rank: 'Rank',
+  gear: ''
 };
+
+const getIronforgeLink = name => `https://ironforge.pro/?player=${name}`;
 
 const Roster = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -81,6 +84,17 @@ const Roster = () => {
                   <div className={styles.level}>{member.level}</div>
                   <div className={styles.zone}>{member.zone}</div>
                   <div className={styles.rank}>{member.rank}</div>
+                  <div className={styles.gear}>
+                    {m !== 0 && (
+                      <a
+                        href={getIronforgeLink(member.name)}
+                        target='_blank'
+                        rel="noreferrer"
+                      >
+                        Gear
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}
