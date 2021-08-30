@@ -69,9 +69,11 @@ const Gear = () => {
                     ].join(' ')}
                     onClick={() => getItemDetails(itemId)}
                   >
-                    {itemRarity > 1 && <span>[</span>}
-                    {itemName}
-                    {itemRarity > 1 && <span>]</span>}
+                    <a href={`https://www.wowhead.com/item=${itemId}`} target='_blank' rel='noreferrer'>
+                      {itemRarity > 1 && <span>[</span>}
+                      {itemName}
+                      {itemRarity > 1 && <span>]</span>}
+                    </a>
                   </div>
                 ))}
               </div>
