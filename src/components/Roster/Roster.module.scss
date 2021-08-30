@@ -7,7 +7,18 @@
     padding-bottom: 100px;
     width: 90%;
 
-    .members {
+    .controls {
+      color: black;
+      margin-bottom: 50px;
+      text-align: left;
+
+      .numSelected {
+        color: white;
+        margin-top: 10px;
+      }
+    }
+
+    .member {
       align-items: center;
       border-bottom: 1px solid white;
       display: flex;
@@ -70,6 +81,18 @@
 
       .rank {
         width: 200px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .roster {
+    .content {
+      .member {
+        .zone {
+          display: none;
+        }
       }
     }
   }

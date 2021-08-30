@@ -6,7 +6,5 @@ export const getGuild = async (sort = 'name', direction = 'asc') => {
     .then(prop('data'))
     .catch(err => console.error(err));
 
-  console.log('Response', response);
-
   return response;
 };
