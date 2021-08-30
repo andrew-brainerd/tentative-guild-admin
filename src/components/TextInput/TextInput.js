@@ -24,7 +24,7 @@ const TextInput = ({ input, meta, ...props }) => {
           error: styles.error
         }
       }}
-      variant="filled"
+      variant='filled'
       {...props}
     />
   );
