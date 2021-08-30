@@ -35,6 +35,10 @@
       &:hover:not(.header) {
         background: $yellow;
         color: black;
+
+        a, a:link, a:visited, a:hover, a:active {
+          color: inherit;
+        }
       }
 
       .name,

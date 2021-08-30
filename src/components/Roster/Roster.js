@@ -85,7 +85,7 @@ const Roster = () => {
                   <div className={styles.zone}>{member.zone}</div>
                   <div className={styles.rank}>{member.rank}</div>
                   <div className={styles.gear}>
-                    {m !== 0 && (
+                    {m !== 0 && member.level === 70 && (
                       <a
                         href={getIronforgeLink(member.name)}
                         target='_blank'
