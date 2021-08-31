@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { authenticate, getItemInfo } from '../../api/blizzard';
 import { getCharacters, getCharacterGear } from '../../api/gear';
 import { rarities } from '../../constants/items';
+import Loading from '../Loading/Loading';
 import styles from './Gear.module.scss';
 
 const Gear = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [chars, setChars] = useState([]);
   const [charGear, setCharGear] = useState({});
   const [blizzardToken, setBlizzardToken] = useState(null);
@@ -17,6 +19,7 @@ const Gear = () => {
 
     getCharacters().then(({ characters }) => {
       setChars(characters);
+      setIsLoading(false);
     });
   }, []);
 
@@ -34,7 +37,6 @@ const Gear = () => {
     getItemInfo(blizzardToken, itemId).then(response => {
       console.log(response);
       setGearDetails(JSON.stringify(response, null, 2));
-
       // console.log(Object.keys(response.full.preview_item));
     });
   };
@@ -44,8 +46,8 @@ const Gear = () => {
     <h1>Gear</h1>
     <div className={styles.content}>
       <div className={styles.characters}>
-        {chars.map(character => (
-          <div key={character}>
+        {isLoading ? <Loading /> : chars.map(character => (
+          <div key={character} className={styles.characterContainer}>
             <div
               className={styles.character}
               onClick={() => {
@@ -69,7 +71,7 @@ const Gear = () => {
                     ].join(' ')}
                     onClick={() => getItemDetails(itemId)}
                   >
-                    <a href={`https://www.wowhead.com/item=${itemId}`} target='_blank' rel='noreferrer'>
+                    <a href={`https://tbc.wowhead.com/item=${itemId}`} target='_blank' rel='noreferrer'>
                       {itemRarity > 1 && <span>[</span>}
                       {itemName}
                       {itemRarity > 1 && <span>]</span>}
