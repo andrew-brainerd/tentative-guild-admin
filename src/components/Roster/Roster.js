@@ -62,7 +62,7 @@ const Roster = () => {
                 isMulti
               />
               <div className={styles.numSelected}>
-                {filteredList ? filteredList.length : roster.length} members{filteredList && ' selected'}
+                {filteredList ? filteredList.length - 1 : roster.length - 1} members{filteredList && ' selected'}
               </div>
             </div>
             {(filteredList || roster).map((member, m) => (
